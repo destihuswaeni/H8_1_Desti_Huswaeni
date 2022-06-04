@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jun  4 14:17:11 2022
+
+@author: destihuswaeni
+"""
+
+#Contoh 1 : 
+if 'foo' in ['foo','bar', 'baz', 'qux']:
+    print('Expression was true')
+    print('Executing statement in suite')
+    print('...')
+    print('Done.')
+    
+print('After conditional')
+
+if 'foo' in ['foo', 'bar', 'baz']:        #  x
+    print('Outer condition is true')      #  x
+
+    if 10 > 20:                           #  x
+        print('Inner condition 1')        #        x
+
+    print('Between inner conditions')     #  x
+
+    if 10 < 20:                           #  x
+        print('Inner condition 2')        #  x
+
+    print('End of outer condition')       #  x
+print('After outer condition')            #  x
+
+x = 20
+
+if x < 50:
+    print('(first suite)')
+    print('x is small')
+else:
+    print('(second suite)')
+    print('x is large')
+    
+hargaBuku = 20000
+hargaMajalah = 5000
+uang = 2000
+
+if uang > hargaBuku:
+    print("beli buku")
+else:
+    print("uang tidak cukup")
+    
+    name = 'Hacktiv8'
+if name == 'Fred':
+    print('Hello Fred')
+elif name == 'Xander':
+    print('Hello Xander')
+elif name == 'Hacktiv8':
+    print('Hello Hacktiv8')
+elif name == 'Arnold':
+    print('Hello Arnold')
+else:
+    print("I don't know who you are!")
+    
+    
+    
+#Latihan 
+hargabuku = int(input("masukan harga buku = "))
+jumlahbeli = int(input("masukan jumlah beli = "))
+uang = int(input("uang kamu = "))
+
+totalbeli = hargabuku*jumlahbeli
+
+if uang > totalbeli:
+    print('boleh beli buku dapat kembali')
+elif uang == totalbeli:
+    print('bisa dapat buku 3')
+else: 
+    print('pulang minta uang lagi')
+    
+#Latihan
+nilai_absen = int(input("Masukan nilai absen = "))
+nilai_tugas = int(input("Masukan nilai tugas = "))
+nilai_uts = int(input("Masukan nilai uts = "))
+nilai_uas = int(input("Masukan nilai uas = "))
+
+nilai_akhir = nilai_absen*0.1 + nilai_tugas*0.2 + nilai_uts*0.3 + nilai_uas*0.4  
+print(nilai_akhir)
+
+if nilai_akhir >=80 <=100: 
+    print('A')
+elif nilai_akhir >=70 <=79: 
+    print('B')
+elif nilai_akhir >=60 <=69: 
+    print('C')
+elif nilai_akhir >=50 <=59: 
+    print('D')
+else: print('E')
