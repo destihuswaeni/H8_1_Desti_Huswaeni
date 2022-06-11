@@ -1,0 +1,180 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jun 11 12:56:44 2022
+
+@author: destihuswaeni
+"""
+
+import numpy as np
+
+a = np.array([[1 , 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+print(a[0]) #indeks pertama dimulai dari 0
+
+#single dimention array (hanya satu baris)
+#2D array (ada lebih dari satu baris)
+
+#Contoh 1 : numpy.array (memunculkan matrix colomn dan baris)
+a = np.array([[1,2,3],[4,5,6]])
+
+#Contoh 2 : numpy.Zeros (memunculkan angka nol sebanyak n kali)
+np.zeros (6)
+print(np.zeros(6))
+
+#Contoh 3 : numpy ones dan numpy empty
+np.empty(6)
+
+#Contoh 4 : numpy arange (start,stop,step)
+print(np.arange(4))
+print(np.arange(0,10,2))
+np.arange(3,29,5)
+
+#Contoh 5 : Add (np.append) Remove (np.delete) Sort(np.sort)
+#---Add / Append
+arr = np.array([1,2,3,4,5])
+np.append(arr,[8,9,10]) #(baris,penambahan)
+
+#---Delete/ Remove
+arr = np.array([1,2,3,4,5,10,13,11])
+np.delete(arr,5) #(baris,indeks)
+
+#---Sort/ Mengurutkan
+arr = np.array([1,7,11,3,4,5])
+np.sort(arr)
+np.sorted_array(arr)
+
+#Contoh 6 : Shape and Size
+#ndarray.ndim akan memberi tahu kalian jumlah axes, atau dimensi, dari array.
+#ndarray.size akan memberi tahu kalian jumlah total elemen array. Ini adalah produk dari elemen shape array.
+#ndarray.shape akan menampilkan tuple integer yang menunjukkan jumlah elemen yang disimpan di sepanjang setiap dimensi array. Jika, misalnya, kalian memiliki larik 2D dengan 2 baris dan 3 kolom, maka bentuk larik Anda adalah (2,3).
+array_example = np.array([[[0, 1, 2, 3],
+                           [4, 5, 6, 7]],
+
+                          [[0, 1, 2, 3],
+                           [4, 5, 6, 7]],
+
+                          [[0, 1, 2, 3],
+                           [4, 5, 6, 7]]])
+
+print(array_example)
+print(array_example.ndim)
+print(array_example.size)
+print(array_example.shape) #(jumlah matrix,jumlah baris tiap matrix, jumlah kolom tiap matrix)
+
+#Contoh 7 : Reshape (menjadikan baris menjadi matrix kolom dan baris)
+a = np.arange(10)
+print(a)
+
+b = a.reshape(5,2)
+print(b)
+
+#Contoh 8 : Convert 1D to 2D
+#---np.newaxis
+a = np.array([1, 2, 3, 4, 5, 6])
+a.shape
+a2 = a[np.newaxis]
+print(a2.shape)
+print(a2)
+row_vector = a[np.newaxis, :]
+print(row_vector.shape)
+print(row_vector)
+col_vector = a[:, np.newaxis]
+print(col_vector.shape)
+print(col_vector)
+
+#--np.expand
+a = np.array([1, 2, 3, 4, 5, 6])
+a.shape
+
+b = np.expand_dims(a, axis=1)
+b.shape
+
+c = np.expand_dims(a, axis=0)
+c.shape
+
+#Contoh 9 : Indexing and Slicing
+#---Indexing (index d mulai dari 0)
+data = np.array([1,2,3,4,5,6,7,8,9,10])
+
+print(data)
+print(data[0])
+print(data[1])
+print(data[0:4])
+print(data[1:])
+print(data[-6:])
+
+databalik = sorted(data,reverse=True) #untuk mengurutkan dari besar ke kecil
+print(databalik)
+
+#---Slicing
+a = np.array([[1 , 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+a
+
+print(a[a>=5])
+
+five_up = (a >= 5) #menambahkan 5
+print(a[five_up])
+print(a[a>=5])
+
+divisible_by_2 = a[a%2==0] #kelipatan
+print(divisible_by_2)
+
+c = a[(a > 2) & (a < 11)]
+print(c)
+
+#Contoh 10 : Creating Array from Existing Data
+arr = np.array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
+arr1 = arr[3:8]
+arr1
+
+#menumpuk data
+a_1 = np.array([[1, 1],
+                [2, 2]])
+a_2 = np.array([[3, 3],
+                [4, 4]])
+np.vstack((a_1, a_2)) #vertikal
+np.hstack((a_1, a_2)) #horizontal
+
+#---Split
+array = np.array([[ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12],
+     [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]])
+
+arrsplit = np.array([[1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12],
+                     [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]])
+print(arrsplit)
+np.hsplit(arrsplit,3)
+
+a = np.array([[1 , 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+a
+
+b = a.view()
+b
+
+c = a.copy()
+c
+
+#Contoh 11 : Addition, subtraction, multiplication, division, and more
+a = np.array([1, 2, 3, 4])
+# Add all of the elements in the array
+a.sum()
+
+b = np.array([[1, 1], [2, 2]])
+b
+
+b.sum(axis=0) #menjumlahkan index
+
+b.sum(axis=1)
+
+data = np.array([1, 2])
+data
+
+ones = np.ones(2)
+ones
+
+data + ones
+
+
+
+
+
+
